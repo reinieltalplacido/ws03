@@ -20,28 +20,28 @@
    ---------------------------------------------------------------- */
 
 :root {
-  --color-header: #71C9CE;
-  /* Header at navigation bar */
-  --color-accent: #A6E3E9;
-  /* "Post a Job" button at mga highlight */
-  --color-page-bg: #E3FDFD;
-  /* Background ng buong page */
-  --color-card-bg: #FFFFFF;
-  /* Background ng mga card/box */
-  --color-heading: #0F3946;
-  /* Kulay ng mga title at heading */
-  --color-body-text: #0F3946;
-  /* Regular na body text */
-  --color-link: #0F3946;
-  /* Mga clickable na links */
-  --color-tag-bg: #FFFFFF;
-  /* Background ng mga tag/badge */
-  --color-tag-text: #0F3946;
-  /* Text ng mga tag/badge */
-  --color-footer: #71C9CE;
-  /* Footer background */
-  --showcase-overlay: rgba(0, 0, 0, 0.12);
-  /* Hero banner overlay */
+  --color-header: #000000;
+  /* Header at navigation bar (Black) */
+  --color-accent: #38BDF8;
+  /* "Post a Job" button at mga highlight (Light Blue) */
+  --color-page-bg: #111827;
+  /* Background ng buong page (Very Dark Gray) */
+  --color-card-bg: #1F2937;
+  /* Background ng mga card/box (Dark Gray) */
+  --color-heading: #7DD3FC;
+  /* Kulay ng mga title at heading (Lighter Blue) */
+  --color-body-text: #E0F2FE;
+  /* Regular na body text (Pale Blue/White) */
+  --color-link: #38BDF8;
+  /* Mga clickable na links (Light Blue) */
+  --color-tag-bg: #0C4A6E;
+  /* Background ng mga tag/badge (Dark Blue) */
+  --color-tag-text: #BAE6FD;
+  /* Text ng mga tag/badge (Soft Light Blue) */
+  --color-footer: #000000;
+  /* Footer background (Black) */
+  --showcase-overlay: rgba(0, 0, 0, 0.7);
+  /* Hero banner overlay (Darker) */
 }
 
 
@@ -164,6 +164,10 @@ header {
   color: var(--color-link) !important;
 }
 
+.text-white {
+  color: #ffffff !important;
+}
+
 button,
 .rounded,
 .rounded-lg,
@@ -216,8 +220,8 @@ body>footer {
 /* ----------------------------------------------------------------
    ADVANCED ZONE — Para sa gustong mag-explore pa!
    ----------------------------------------------------------------
-   Alisin ang /* at */
-para i-activate ang isang rule.
+   Alisin ang comment tags para i-activate ang isang rule.
+*/
 /* Hover effect sa mga link */
 /* a:hover {
   text-decoration: underline;
@@ -234,21 +238,21 @@ para i-activate ang isang rule.
    SPECIFIC UI OVERRIDES
    ================================================================ */
 
-/* 1. TOP HEADER - White text for logo and navigation links */
+/* 1. TOP HEADER - Text for logo and navigation links */
 header h1,
 header h1 a,
 header nav a:not(.bg-yellow-500) {
-  color: #FFFFFF !important;
+  color: var(--color-heading) !important;
 }
 
-/* 2. JOB LISTINGS - Pure white background for card details section */
+/* 2. JOB LISTINGS - Background for card details section */
 .bg-gray-100 {
-  background-color: #FFFFFF !important;
-  border: 1px solid rgba(15, 57, 70, 0.08) !important;
+  background-color: var(--color-page-bg) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-/* 3. BOTTOM BANNER - White text for title and description */
+/* 3. BOTTOM BANNER - Text for title and description */
 .bg-blue-800 h2,
 .bg-blue-800 p {
-  color: #FFFFFF !important;
+  color: var(--color-body-text) !important;
 }

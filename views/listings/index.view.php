@@ -8,7 +8,7 @@
             <div class="rounded-lg shadow-md bg-white">
                 <div class="p-4">
                     <h2 class="text-xl font-semibold">Software Engineer</h2>
-                    <p class="text-gray-700 text-lg mt-2">
+                    <p class="text-white text-lg mt-2">
                         We are seeking a skilled software engineer to develop
                         high-quality software solutions.
                     </p>
@@ -25,7 +25,7 @@
                         </li>
                     </ul>
                     <a href="/listings"
-                        class="block w-full text-center px-5 py-2.5 shadow-sm rounded border text-base font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200">
+                        class="block w-full text-center px-5 py-2.5 shadow-sm rounded border text-base font-medium text-white bg-blue-500 hover:bg-blue-600">
                         Details
                     </a>
                 </div>
@@ -35,7 +35,7 @@
             <div class="rounded-lg shadow-md bg-white">
                 <div class="p-4">
                     <h2 class="text-xl font-semibold">Marketing Specialist</h2>
-                    <p class="text-gray-700 text-lg mt-2">
+                    <p class="text-white text-lg mt-2">
                         We are looking for a Marketing Specialist to create and manage
                         marketing campaigns.
                     </p>
@@ -52,7 +52,7 @@
                         </li>
                     </ul>
                     <a href="/listings"
-                        class="block w-full text-center px-5 py-2.5 shadow-sm rounded border text-base font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200">
+                        class="block w-full text-center px-5 py-2.5 shadow-sm rounded border text-base font-medium text-white bg-blue-500 hover:bg-blue-600">
                         Details
                     </a>
                 </div>
@@ -62,7 +62,7 @@
             <div class="rounded-lg shadow-md bg-white">
                 <div class="p-4">
                     <h2 class="text-xl font-semibold">Web Developer</h2>
-                    <p class="text-gray-700 text-lg mt-2">
+                    <p class="text-white text-lg mt-2">
                         Join our team as a Web Developer and create amazing web
                         applications.
                     </p>
@@ -79,7 +79,7 @@
                         </li>
                     </ul>
                     <a href="/listings"
-                        class="block w-full text-center px-5 py-2.5 shadow-sm rounded border text-base font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200">
+                        class="block w-full text-center px-5 py-2.5 shadow-sm rounded border text-base font-medium text-white bg-blue-500 hover:bg-blue-600">
                         Details
                     </a>
                 </div>
@@ -89,7 +89,7 @@
             <div class="rounded-lg shadow-md bg-white">
                 <div class="p-4">
                     <h2 class="text-xl font-semibold">Data Analyst</h2>
-                    <p class="text-gray-700 text-lg mt-2">
+                    <p class="text-white text-lg mt-2">
                         We are hiring a Data Analyst to analyze and interpret data for
                         insights.
                     </p>
@@ -106,7 +106,7 @@
                         </li>
                     </ul>
                     <a href="/listings"
-                        class="block w-full text-center px-5 py-2.5 shadow-sm rounded border text-base font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200">
+                        class="block w-full text-center px-5 py-2.5 shadow-sm rounded border text-base font-medium text-white bg-blue-500 hover:bg-blue-600">
                         Details
                     </a>
                 </div>
@@ -116,7 +116,7 @@
             <div class="rounded-lg shadow-md bg-white">
                 <div class="p-4">
                     <h2 class="text-xl font-semibold">Graphic Designer</h2>
-                    <p class="text-gray-700 text-lg mt-2">
+                    <p class="text-white text-lg mt-2">
                         Join our creative team as a Graphic Designer and bring ideas to
                         life.
                     </p>
@@ -133,7 +133,7 @@
                         </li>
                     </ul>
                     <a href="/listings"
-                        class="block w-full text-center px-5 py-2.5 shadow-sm rounded border text-base font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200">
+                        class="block w-full text-center px-5 py-2.5 shadow-sm rounded border text-base font-medium text-white bg-blue-500 hover:bg-blue-600">
                         Details
                     </a>
                 </div>
@@ -142,7 +142,7 @@
             <div class="rounded-lg shadow-md bg-white">
                 <div class="p-4">
                     <h2 class="text-xl font-semibold">Data Scientist</h2>
-                    <p class="text-gray-700 text-lg mt-2">
+                    <p class="text-white text-lg mt-2">
                         We're looking for a Data Scientist to analyze complex data and
                         generate insights.
                     </p>
@@ -159,7 +159,7 @@
                         </li>
                     </ul>
                     <a href="/listings"
-                        class="block w-full text-center px-5 py-2.5 shadow-sm rounded border text-base font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200">
+                        class="block w-full text-center px-5 py-2.5 shadow-sm rounded border text-base font-medium text-white bg-blue-500 hover:bg-blue-600">
                         Details
                     </a>
                 </div>
