@@ -1,5 +1,5 @@
-<?= loadPartial('head'); ?>
-<?= loadPartial('navbar'); ?>
+<?php loadPartial('head'); ?>
+<?php loadPartial('navbar'); ?>
 <section class="container mx-auto p-4 mt-8 mb-8 max-w-2xl">
     <h2 class="text-4xl font-bold mb-8">Create Job Listing</h2>
     
