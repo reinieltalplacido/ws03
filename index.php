@@ -1,5 +1,7 @@
 <?php
-
+//  ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// for error
 require __DIR__ . '/helpers.php';
 
 $uri = $_SERVER['REQUEST_URI'];
@@ -17,6 +19,7 @@ if ($path !== '/' && file_exists(__DIR__ . '/public' . $path)) {
 }
 
 require basePath('Router.php');
+require basePath('Database.php');
 
 $router = new Router();
 

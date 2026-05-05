@@ -23,7 +23,7 @@ function basePath($path = '')
 function loadPartial($partial, array $data = [])
 {
     $partialPath = basePath('views/partials/' . $partial . '.php');
-    
+
     if (file_exists($partialPath)) {
         require $partialPath;
     } else {
@@ -31,9 +31,19 @@ function loadPartial($partial, array $data = [])
     }
 }
 
-function loadView($view, array $data = [])
+function loadView($name, $data = [])
 {
-    extract($data, EXTR_SKIP);
-    require basePath('views/' . $view . '.view.php');
+    $viewPath = basePath('views/' . $name . '.view.php');
+
+    if (file_exists($viewPath)) {
+        extract($data);
+        require $viewPath;
+    } else {
+        echo "View {$name} not found";
+    }
 }
 
+function formatSalary($salary)
+{
+    return '$' . number_format(floatval($salary));
+}

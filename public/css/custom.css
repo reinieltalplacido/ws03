@@ -175,8 +175,9 @@ button,
   border-radius: var(--border-radius) !important;
 }
 
-.overlay {
+..overlay {
   background-color: var(--showcase-overlay) !important;
+  pointer-events: none;
 }
 
 footer,
