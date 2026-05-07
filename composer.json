@@ -1,0 +1,13 @@
+{
+    "name": "reiniel/ws03",
+    "description": "Jobseeker Project",
+    "type": "project",
+    "authors": [
+        {
+            "name": "reinieltalplacido",
+            "email": "reinieltalplacido529@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
