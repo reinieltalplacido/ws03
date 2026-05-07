@@ -1,8 +1,9 @@
 <?php
 
 require '../helpers.php';
+require basePath('Framework/Router.php');
+require basePath('Framework/Database.php');
 
-require basePath('Router.php');
 
 $router = new Router();
 

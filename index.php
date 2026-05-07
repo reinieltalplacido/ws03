@@ -18,8 +18,8 @@ if ($path !== '/' && file_exists(__DIR__ . '/public' . $path)) {
     exit;
 }
 
-require basePath('Router.php');
-require basePath('Database.php');
+require basePath('Framework/Router.php');
+require basePath('Framework/Database.php');
 
 $router = new Router();
 
