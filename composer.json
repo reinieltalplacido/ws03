@@ -1,13 +1,16 @@
 {
-    "name": "reiniel/ws03",
+    "name": "reinieltalplacido/ws03",
     "description": "Jobseeker Project",
-    "type": "project",
     "authors": [
         {
-            "name": "reinieltalplacido",
+            "name": "Reiniel Talplacido",
             "email": "reinieltalplacido529@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
-    "require": {}
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "Framework/",
+            "App\\": "App/"
+        }
+    }
 }
