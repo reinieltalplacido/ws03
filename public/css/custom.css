@@ -1,91 +1,63 @@
 /* ============================================================
    JOBSEEK — CUSTOM STYLESHEET
    Pangalan ng Student: Reiniel Talplacido BSIT - 3E
-   Theme Name:          ______________________________ // Anong style would best describe this stylesheet
+   Theme Name: Premium Modern (Midnight Purple & White)
    ============================================================ */
 
-/* --- Google Fonts Import (optional) ---
-   Pumunta sa https://fonts.google.com, pumili ng font,
-   i-copy ang @import link, i-paste dito. */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+/* --- Google Fonts Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap');
 
 
 /* ----------------------------------------------------------------
    SECTION 1: MGA KULAY (Colors)
-   ----------------------------------------------------------------
-   Palitan ang bawat hex code ng kulay na gusto mo.
-   Tip: https://coolors.co — para pumili ng color palette
-        https://htmlcolorcodes.com — para makita ang hex codes
    ---------------------------------------------------------------- */
 
 :root {
-  --color-header: #000000;
-  /* Header at navigation bar (Black) */
-  --color-accent: #38BDF8;
-  /* "Post a Job" button at mga highlight (Light Blue) */
-  --color-page-bg: #111827;
-  /* Background ng buong page (Very Dark Gray) */
-  --color-card-bg: #1F2937;
-  /* Background ng mga card/box (Dark Gray) */
-  --color-heading: #7DD3FC;
-  /* Kulay ng mga title at heading (Lighter Blue) */
-  --color-body-text: #E0F2FE;
-  /* Regular na body text (Pale Blue/White) */
-  --color-link: #38BDF8;
-  /* Mga clickable na links (Light Blue) */
-  --color-tag-bg: #0C4A6E;
-  /* Background ng mga tag/badge (Dark Blue) */
-  --color-tag-text: #BAE6FD;
-  /* Text ng mga tag/badge (Soft Light Blue) */
-  --color-footer: #000000;
-  /* Footer background (Black) */
-  --showcase-overlay: rgba(0, 0, 0, 0.7);
-  /* Hero banner overlay (Darker) */
+  --color-header: #2E1065;
+  /* Midnight Purple */
+  --color-accent: #581C87;
+  /* Royal Purple Accent */
+  --color-page-bg: #FFFFFF;
+  /* White */
+  --color-card-bg: #FFFFFF;
+  /* White */
+  --color-section-bg: #F5F3FF;
+  /* Soft Lavender */
+  --color-heading: #2E1065;
+  /* Midnight Purple */
+  --color-body-text: #2E1065;
+  /* Midnight Purple */
+  --color-link: #581C87;
+  /* Royal Purple */
+  --color-tag-bg: #F5F3FF;
+  /* Soft Lavender */
+  --color-tag-text: #2E1065;
+  /* Midnight Purple */
+  --color-footer: #2E1065;
+  /* Midnight Purple */
+  --showcase-overlay: transparent;
+  /* Clear overlay */
 }
 
 
 /* ----------------------------------------------------------------
    SECTION 2: MGA FONT (Typography)
-   ----------------------------------------------------------------
-   Palitan ng font name na gusto mo.
-   Kung gagamit ng Google Font, i-import muna sa taas ng file.
-
-   Halimbawa ng built-in fonts (hindi na kailangan ng import):
-     'Georgia', serif
-     'Arial', sans-serif
-     'Verdana', sans-serif
-     'Times New Roman', serif
-     'Courier New', monospace
    ---------------------------------------------------------------- */
 
 :root {
-  --font-heading: 'Poppins', sans-serif;
-  /* Para sa mga title at heading */
-  --font-body: 'Poppins', sans-serif;
-  /* Para sa regular na text */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Lato', sans-serif;
 }
 
 
 /* ----------------------------------------------------------------
    SECTION 3: HUGIS AT ESTILO (Shape & Style)
-   ----------------------------------------------------------------
-   --border-radius:
-     0px      = matuwid / sharp corners
-     4px      = konting rounding
-     8px      = medyo rounded
-     16px     = malakas na rounding
-     9999px   = pill shape / fully round
-
-   --card-shadow:
-     none                           = walang shadow
-     0 2px 8px rgba(0,0,0,0.08)    = mahinang shadow
-     0 4px 16px rgba(0,0,0,0.20)   = malakas na shadow
    ---------------------------------------------------------------- */
 
 :root {
-  --border-radius: 8px;
-  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --border-radius: 4px;
+  /* Sharper corners for a corporate feel */
+  --card-shadow: 0 4px 12px rgba(46, 16, 101, 0.08);
 }
 
 
@@ -109,6 +81,7 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading) !important;
+  font-weight: 700 !important;
   color: var(--color-heading) !important;
 }
 
@@ -135,7 +108,8 @@ header {
 
 .hover\:bg-yellow-600:hover {
   background-color: var(--color-accent) !important;
-  filter: brightness(0.88);
+  filter: brightness(1.2);
+  /* Lighter on hover since it's Navy */
 }
 
 .bg-blue-500 {
@@ -146,7 +120,7 @@ header {
   background-color: var(--color-card-bg) !important;
   border-radius: var(--border-radius) !important;
   box-shadow: var(--card-shadow) !important;
-  border: 1px solid rgba(15, 57, 70, 0.08) !important;
+  border: 1px solid rgba(46, 16, 101, 0.1) !important;
 }
 
 .bg-indigo-100 {
@@ -175,7 +149,7 @@ button,
   border-radius: var(--border-radius) !important;
 }
 
-..overlay {
+.overlay {
   background-color: var(--showcase-overlay) !important;
   pointer-events: none;
 }
@@ -199,7 +173,7 @@ footer h6 {
 }
 
 .bg-gray-100 {
-  background-color: var(--color-page-bg) !important;
+  background-color: var(--color-section-bg) !important;
 }
 
 /* Sticky Footer */
@@ -218,23 +192,6 @@ body>footer {
 }
 
 
-/* ----------------------------------------------------------------
-   ADVANCED ZONE — Para sa gustong mag-explore pa!
-   ----------------------------------------------------------------
-   Alisin ang comment tags para i-activate ang isang rule.
-*/
-/* Hover effect sa mga link */
-/* a:hover {
-  text-decoration: underline;
-  opacity: 0.85;
-} */
-
-/* Kulay ng input fields */
-/* input, select, textarea {
-  border-color: var(--color-link) !important;
-  border-radius: var(--border-radius) !important;
-} */
-
 /* ================================================================
    SPECIFIC UI OVERRIDES
    ================================================================ */
@@ -242,18 +199,72 @@ body>footer {
 /* 1. TOP HEADER - Text for logo and navigation links */
 header h1,
 header h1 a,
-header nav a:not(.bg-yellow-500) {
-  color: var(--color-heading) !important;
+header nav a:not(.bg-white) {
+  color: #FFFFFF !important;
+  /* White text on Purple header */
 }
 
-/* 2. JOB LISTINGS - Background for card details section */
-.bg-gray-100 {
-  background-color: var(--color-page-bg) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-}
-
-/* 3. BOTTOM BANNER - Text for title and description */
-.bg-blue-800 h2,
-.bg-blue-800 p {
+/* 2. JOB LISTINGS - Fix invisible description text */
+.bg-white p.text-white,
+.bg-white p.text-gray-500,
+.bg-white p.text-gray-700 {
   color: var(--color-body-text) !important;
+  /* Force Purple text on White cards for paragraphs */
+}
+
+/* Ensure tags and buttons retain white text */
+.bg-blue-500,
+.bg-blue-800,
+.bg-blue-900,
+.rounded-full.bg-blue-500,
+a.bg-blue-500 {
+  color: #FFFFFF !important;
+}
+
+
+.bg-gray-100 {
+  background-color: var(--color-section-bg) !important;
+  border: 1px solid rgba(46, 16, 101, 0.05) !important;
+}
+
+/* 3. BANNERS - Text for title and description */
+.bg-blue-800 h2,
+.bg-blue-800 p,
+.bg-blue-900 h2,
+.bg-blue-900 p {
+  color: #FFFFFF !important;
+  /* White text on Purple background */
+}
+
+/* 4. BUTTONS - Ensure consistency and contrast */
+.bg-blue-500,
+.bg-blue-800,
+.bg-yellow-500 {
+  color: #FFFFFF !important;
+}
+
+/* "Post a Job" style buttons (White background) */
+.bg-white.text-black,
+.bg-white.text-\[#0F3946\],
+header nav a.bg-white {
+  color: var(--color-header) !important;
+  /* Purple text on White buttons */
+  font-weight: 700 !important;
+}
+
+/* 5. SEARCH SECTION - Use Ice Blue */
+.showcase-search {
+  background-color: var(--color-section-bg) !important;
+}
+
+/* 6. GENERAL TEXT FIXES */
+.text-gray-500,
+.text-gray-700 {
+  color: var(--color-body-text) !important;
+}
+
+/* 7. SHOWCASE (HERO) TEXT - Ensure readability if background is light */
+.showcase h2 {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  /* Add text shadow for clarity */
 }

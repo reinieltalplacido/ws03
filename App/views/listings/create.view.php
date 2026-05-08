@@ -1,9 +1,9 @@
 <?php loadPartial('head'); ?>
 <?php loadPartial('navbar'); ?>
 <section class="container mx-auto p-4 mt-8 mb-8 max-w-2xl">
-    <h2 class="text-4xl font-bold mb-8">Create Job Listing</h2>
+    <h2 class="text-4xl font-bold mb-8 text-[#2E1065]">Create Job Listing</h2>
     
-    <form method="POST" class="bg-white rounded-lg shadow-md p-8 border border-gray-700">
+    <form method="POST" class="bg-white rounded-lg shadow-xl p-8 border border-gray-100">
         <!-- Job Title -->
         <div class="mb-6">
             <label for="title" class="block text-lg font-semibold mb-2">Job Title</label>
@@ -12,7 +12,7 @@
                 id="title" 
                 name="title" 
                 placeholder="e.g., Senior Software Engineer"
-                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 text-white"
+                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 text-[#2E1065] placeholder-gray-400"
                 required>
         </div>
 
@@ -24,7 +24,7 @@
                 id="company" 
                 name="company" 
                 placeholder="Your Company"
-                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 text-white"
+                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 text-[#2E1065] placeholder-gray-400"
                 required>
         </div>
 
@@ -36,7 +36,7 @@
                 name="description" 
                 rows="6"
                 placeholder="Describe the job responsibilities, requirements, and benefits..."
-                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 text-white"
+                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 text-[#2E1065] placeholder-gray-400"
                 required></textarea>
         </div>
 
@@ -48,7 +48,7 @@
                 id="salary" 
                 name="salary" 
                 placeholder="e.g., $50,000 - $80,000"
-                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 text-white"
+                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 text-[#2E1065] placeholder-gray-400"
                 required>
         </div>
 
@@ -60,7 +60,7 @@
                 id="location" 
                 name="location" 
                 placeholder="e.g., New York, NY"
-                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 text-white"
+                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 text-[#2E1065] placeholder-gray-400"
                 required>
         </div>
 
@@ -72,7 +72,7 @@
                 id="tags" 
                 name="tags" 
                 placeholder="e.g., PHP, Laravel, JavaScript (comma separated)"
-                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 text-white"
+                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 text-[#2E1065] placeholder-gray-400"
                 required>
         </div>
 
@@ -82,7 +82,7 @@
             <select 
                 id="type" 
                 name="type"
-                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 text-white"
+                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 text-[#2E1065]"
                 required>
                 <option value="">Select Type</option>
                 <option value="Full-time">Full-time</option>
@@ -99,7 +99,7 @@
             <select 
                 id="work_type" 
                 name="work_type"
-                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 text-white"
+                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 text-[#2E1065]"
                 required>
                 <option value="">Select Work Type</option>
                 <option value="Local">Local</option>
@@ -112,12 +112,12 @@
         <div class="flex gap-4">
             <button 
                 type="submit"
-                class="flex-1 px-8 py-3 bg-blue-900 hover:bg-blue-800 text-white font-semibold rounded-lg transition-colors duration-300">
+                class="flex-1 px-8 py-3 bg-[#2E1065] hover:bg-[#581C87] text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-indigo-500/20">
                 <i class="fa fa-check mr-2"></i>Post Listing
             </button>
             <a 
                 href="/listings"
-                class="flex-1 px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg text-center transition-colors duration-300">
+                class="flex-1 px-8 py-3 bg-gray-100 hover:bg-gray-200 text-[#2E1065] font-semibold rounded-lg text-center transition-all duration-300 border border-gray-200">
                 <i class="fa fa-times mr-2"></i>Cancel
             </a>
         </div>
