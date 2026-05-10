@@ -1,5 +1,6 @@
 <?php loadPartial('head'); ?>
 <?php loadPartial('navbar'); ?>
+<?php loadPartial('top-banner'); ?>
 <section>
     <div class="container mx-auto p-4 mt-4">
         <div class="text-center text-3xl mb-8 font-bold text-[#2E1065] border-b-2 border-[#581C87] pb-4 max-w-xs mx-auto">Recent Jobs</div>
