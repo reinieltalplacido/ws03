@@ -9,7 +9,9 @@
         <p class="text-center text-2xl mb-4">
             <?= $message ?>
         </p>
-        <a class=" block text-center" href="/listings"> Go Back To Listings</a> 
+        <a class="block text-center text-blue-700 hover:underline" href="/listings">
+            <i class="fa fa-arrow-left"></i> Go Back To Listings
+        </a> 
     </div>
 </section>
 
