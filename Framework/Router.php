@@ -82,20 +82,47 @@ class Router
      * @param string $method
      * @return void
      */
-    public function route($uri, $method)
+    public function route($uri)
     {
+        $requestMethod = $_SERVER['REQUEST_METHOD'];        
+
         foreach ($this->routes as $route) {
-            if ($route['uri'] === $uri && $route['method'] === $method) {
-                //Extract Controller
-                $controller = 'App\\Controllers\\' . $route['controller'];
+            //Split the Current URI into segments
+            $uriSegments = explode('/',trim( $uri,'/'));
+            
+            //Split the route URI into segments
+            $routeSegments = explode('/',trim( $route['uri'],'/'));
+           
+            $match = true;
+
+            if (count($uriSegments) === count($routeSegments) && strtoupper($route['method']) === $requestMethod) {
+                $params = [];
+
+                $match = true;
+
+                for ($i = 0; $i < count($uriSegments); $i++) {
+                    // if the uri do not match and there is no value in the id
+                    if ($routeSegments[$i] !== $uriSegments[$i] && !preg_match('/\{(.+?)\}/', $routeSegments[$i])) {
+                        $match = false;
+                        break;
+                    }
+                    //check for param and add to $params array 
+                    if (preg_match ('/\{(.+?)\}/', $routeSegments[$i], $matches)) {
+                        $params[$matches[1]] = $uriSegments[$i];
+                    }
+                }
+                if ($match) {
+                // Extract Controller
+                $controller   = 'App\\Controllers\\' . $route['controller'];
                 $controllerMethod = $route['controllerMethod'];
                 //Instantiate controller 
                 $controllerInstance = new $controller();
-                $controllerInstance->$controllerMethod();
+                $controllerInstance->$controllerMethod($params);
                 return;
+                    
+                }
             }
         }
-
-       ErrorController::notFound();
+        ErrorController::notFound();
     }
 }

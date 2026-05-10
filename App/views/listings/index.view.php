@@ -24,7 +24,7 @@
                                 <strong>Tags:</strong> <?= $listing->tags ?>
                             </li>
                         </ul>
-                        <a href="/listings/<?= $listing->id ?>"
+                        <a href="/listing/<?= $listing->id ?>"
                             class="block w-full text-center px-5 py-3 shadow-md rounded-lg text-white bg-[#2E1065] hover:bg-[#581C87] transition-all duration-300 font-semibold">
                             Details
                         </a>

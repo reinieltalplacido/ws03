@@ -24,12 +24,18 @@ class ListingController
         loadView('listings/create');
     }
     
-    public function show () {
-        $id = $_GET['id'] ?? '';
-        $params = ['id' => $id];
+    public function show ($params) {
+        
+        $id = $params['id'] ?? '';
+        $queryParams = ['id' => $id];
 
-        $listing = $this->db->query('SELECT * FROM listings WHERE id = :id', $params)->fetch();
+        $listing = $this->db->query('SELECT * FROM listings WHERE id = :id', $queryParams)->fetch();
 
+        //Check if listing exist 
+        if (! $listing) {
+            ErrorController::notFound('Listing not found');
+            return;
+        }
         loadView('listings/show', [
             'listing' =>  $listing
         ]);

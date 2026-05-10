@@ -30,7 +30,7 @@
                                 <strong>Tags:</strong> <?= $listing->tags ?>
                             </li>
                         </ul>
-                        <a href="/listing?id=<?= $listing->id ?>"
+                        <a href="/listing/<?= $listing->id ?>"
                             class="block w-full text-center px-5 py-2.5 shadow-sm rounded border text-base font-medium text-white bg-blue-500 hover:bg-blue-600">
                             Details
                         </a>
@@ -38,7 +38,7 @@
                 </div>
             <?php endforeach; ?>
         </div>
-        <a href="/listings" class="block text-xl text-center">
+        <a href="/listing/<?= $listing->id ?>" class="block text-xl text-center">
             <i class="fa fa-arrow-alt-circle-right"></i>
             Show All Jobs
         </a>
