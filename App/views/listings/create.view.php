@@ -1,128 +1,145 @@
 <?php loadPartial('head'); ?>
 <?php loadPartial('navbar'); ?>
-<section class="container mx-auto p-4 mt-8 mb-8 max-w-2xl">
-    <h2 class="text-4xl font-bold mb-8 text-[#2E1065]">Create Job Listing</h2>
-    
-    <form method="POST" class="bg-white rounded-lg shadow-xl p-8 border border-gray-100">
-        <!-- Job Title -->
-        <div class="mb-6">
-            <label for="title" class="block text-lg font-semibold mb-2">Job Title</label>
-            <input 
-                type="text" 
-                id="title" 
-                name="title" 
-                placeholder="e.g., Senior Software Engineer"
-                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 text-[#2E1065] placeholder-gray-400"
-                required>
-        </div>
 
-        <!-- Company Name -->
-        <div class="mb-6">
-            <label for="company" class="block text-lg font-semibold mb-2">Company Name</label>
-            <input 
-                type="text" 
-                id="company" 
-                name="company" 
-                placeholder="Your Company"
-                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 text-[#2E1065] placeholder-gray-400"
-                required>
-        </div>
+<section class="flex justify-center items-center mt-10 mb-20">
+    <div class="bg-white p-8 rounded-lg shadow-2xl w-full md:w-[600px] mx-6 border border-gray-100">
+        <h2 class="text-4xl text-center font-bold mb-4 text-[#2E1065]">Create Job Listing</h2>
+        
+        <form method="POST" action="/listings">
+            <h2 class="text-2xl font-bold mb-6 text-center text-gray-400">Job Info</h2>
+            
+            <?php if(isset($errors)) : ?>
+                <div class="mb-6">
+                    <?php foreach($errors as $error): ?>
+                        <div class="bg-red-50 border-l-4 border-red-500 text-red-700 p-3 mb-2 rounded-r-lg shadow-sm text-sm animate-pulse">
+                            <i class="fa fa-exclamation-circle mr-2"></i><?= $error; ?>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+            
+            <div class="mb-4">
+                <input 
+                    type="text" 
+                    name="title" 
+                    placeholder="Job Title" 
+                    class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 transition-all" 
+                    value="<?= $listing['title'] ?? '' ?>"/>
+            </div>
+            
+            <div class="mb-4">
+                <textarea 
+                    name="description" 
+                    placeholder="Job Description" 
+                    rows="4"
+                    class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 transition-all"><?= $listing['description'] ?? '' ?></textarea>
+            </div>
+            
+            <div class="mb-4">
+                <input 
+                    type="text" 
+                    name="salary" 
+                    placeholder="Annual Salary" 
+                    class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 transition-all" 
+                    value="<?= $listing['salary'] ?? '' ?>"/>
+            </div>
+            
+            <div class="mb-4">
+                <input 
+                    type="text" 
+                    name="requirements" 
+                    placeholder="Requirements" 
+                    class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 transition-all" 
+                    value="<?= $listing['requirements'] ?? '' ?>"/>
+            </div>
+            
+            <div class="mb-4">
+                <input 
+                    type="text" 
+                    name="benefits" 
+                    placeholder="Benefits" 
+                    class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 transition-all" 
+                    value="<?= $listing['benefits'] ?? '' ?>"/>
+            </div>
 
-        <!-- Description -->
-        <div class="mb-6">
-            <label for="description" class="block text-lg font-semibold mb-2">Job Description</label>
-            <textarea 
-                id="description" 
-                name="description" 
-                rows="6"
-                placeholder="Describe the job responsibilities, requirements, and benefits..."
-                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 text-[#2E1065] placeholder-gray-400"
-                required></textarea>
-        </div>
+            <div class="mb-4">
+                <input 
+                    type="text" 
+                    name="tags" 
+                    placeholder="Tags (comma separated)" 
+                    class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 transition-all" 
+                    value="<?= $listing['tags'] ?? '' ?>"/>
+            </div>
 
-        <!-- Salary -->
-        <div class="mb-6">
-            <label for="salary" class="block text-lg font-semibold mb-2">Salary</label>
-            <input 
-                type="text" 
-                id="salary" 
-                name="salary" 
-                placeholder="e.g., $50,000 - $80,000"
-                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 text-[#2E1065] placeholder-gray-400"
-                required>
-        </div>
+            <h2 class="text-2xl font-bold mb-6 mt-10 text-center text-gray-400">Company Info & Location</h2>
+            
+            <div class="mb-4">
+                <input 
+                    type="text" 
+                    name="company" 
+                    placeholder="Company Name" 
+                    class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 transition-all" 
+                    value="<?= $listing['company'] ?? '' ?>"/>
+            </div>
+            
+            <div class="mb-4">
+                <input 
+                    type="text" 
+                    name="address" 
+                    placeholder="Address" 
+                    class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 transition-all" 
+                    value="<?= $listing['address'] ?? '' ?>"/>
+            </div>
+            
+            <div class="mb-4">
+                <input 
+                    type="text" 
+                    name="city" 
+                    placeholder="City" 
+                    class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 transition-all" 
+                    value="<?= $listing['city'] ?? '' ?>"/>
+            </div>
+            
+            <div class="mb-4">
+                <input 
+                    type="text" 
+                    name="state" 
+                    placeholder="State" 
+                    class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 transition-all" 
+                    value="<?= $listing['state'] ?? '' ?>"/>
+            </div>
+            
+            <div class="mb-4">
+                <input 
+                    type="text" 
+                    name="phone" 
+                    placeholder="Phone" 
+                    class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 transition-all" 
+                    value="<?= $listing['phone'] ?? '' ?>"/>
+            </div>
 
-        <!-- Location -->
-        <div class="mb-6">
-            <label for="location" class="block text-lg font-semibold mb-2">Location</label>
-            <input 
-                type="text" 
-                id="location" 
-                name="location" 
-                placeholder="e.g., New York, NY"
-                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 text-[#2E1065] placeholder-gray-400"
-                required>
-        </div>
+            <div class="mb-4">
+                <input 
+                    type="email" 
+                    name="email" 
+                    placeholder="Email Address" 
+                    class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 transition-all" 
+                    value="<?= $listing['email'] ?? '' ?>"/>
+            </div>
 
-        <!-- Tags/Skills -->
-        <div class="mb-6">
-            <label for="tags" class="block text-lg font-semibold mb-2">Tags/Skills</label>
-            <input 
-                type="text" 
-                id="tags" 
-                name="tags" 
-                placeholder="e.g., PHP, Laravel, JavaScript (comma separated)"
-                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 text-[#2E1065] placeholder-gray-400"
-                required>
-        </div>
-
-        <!-- Type of Employment -->
-        <div class="mb-6">
-            <label for="type" class="block text-lg font-semibold mb-2">Type of Employment</label>
-            <select 
-                id="type" 
-                name="type"
-                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 text-[#2E1065]"
-                required>
-                <option value="">Select Type</option>
-                <option value="Full-time">Full-time</option>
-                <option value="Part-time">Part-time</option>
-                <option value="Contract">Contract</option>
-                <option value="Freelance">Freelance</option>
-                <option value="Internship">Internship</option>
-            </select>
-        </div>
-
-        <!-- Work Type -->
-        <div class="mb-8">
-            <label for="work_type" class="block text-lg font-semibold mb-2">Work Type</label>
-            <select 
-                id="work_type" 
-                name="work_type"
-                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 text-[#2E1065]"
-                required>
-                <option value="">Select Work Type</option>
-                <option value="Local">Local</option>
-                <option value="Remote">Remote</option>
-                <option value="Hybrid">Hybrid</option>
-            </select>
-        </div>
-
-        <!-- Submit Button -->
-        <div class="flex gap-4">
             <button 
-                type="submit"
-                class="flex-1 px-8 py-3 bg-[#2E1065] hover:bg-[#581C87] text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-indigo-500/20">
-                <i class="fa fa-check mr-2"></i>Post Listing
+                type="submit" 
+                class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline transition-all duration-300 mt-6 shadow-lg">
+                Save Listing
             </button>
+            
             <a 
-                href="/listings"
-                class="flex-1 px-8 py-3 bg-gray-100 hover:bg-gray-200 text-[#2E1065] font-semibold rounded-lg text-center transition-all duration-300 border border-gray-200">
-                <i class="fa fa-times mr-2"></i>Cancel
+                href="/listings" 
+                class="block text-center w-full bg-gray-100 hover:bg-gray-200 text-blue-900 font-bold py-3 px-4 rounded-lg focus:outline-none focus:shadow-outline transition-all duration-300 mt-4 border border-gray-200">
+                Cancel
             </a>
-        </div>
-    </form>
+        </form>
+    </div>
 </section>
-<?php 
-require basePath('views/partials/footer.php');
-?>
+
+<?php loadPartial('footer'); ?>

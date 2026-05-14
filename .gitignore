@@ -3,17 +3,16 @@
 
 # Sensitive data
 .env
+/config/db.php
 
 # Logs
 *.log
 
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
+# OS junk files
 Thumbs.db
+Desktop.ini
+.DS_Store
 
-/vendor/
+# Dependencies
+/vendor
+/node_modules
