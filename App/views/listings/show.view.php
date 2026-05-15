@@ -6,6 +6,7 @@
 
  <section class="container mx-auto p-4 mt-4">
       <div class="rounded-lg shadow-md bg-white p-3">
+        <?php loadPartial('message') ?>
        <div class="flex justify-between items-center">
       <a class="block p-4 text-[#581C87] hover:text-[#2E1065] transition-colors" href="/listings">
         <i class="fa fa-arrow-left mr-2"></i>
