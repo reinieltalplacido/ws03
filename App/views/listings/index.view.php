@@ -3,7 +3,13 @@
 <?php loadPartial('top-banner'); ?>
 <section>
     <div class="container mx-auto p-4 mt-4">
-        <div class="text-center text-3xl mb-8 font-bold text-[#2E1065] border-b-2 border-[#581C87] pb-4 max-w-xs mx-auto">Recent Jobs</div>
+        <div class="text-center text-3xl mb-8 font-bold text-[#2E1065] border-b-2 border-[#581C87] pb-4 max-w-xs mx-auto">All Jobs</div>
+        <?php if (isset ($_SESSION['success_message']))  : ?>
+            <div class="message bg-green-100 p-3 my-3">
+                <?= $_SESSION['success_message']; ?>
+            </div>
+            <?php unset($_SESSION['success_message']); ?>
+             <?php endif; ?>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
           <?php foreach ($listings as $listing) : ?>
             <!-- Job Listing 1: Software Engineer -->
