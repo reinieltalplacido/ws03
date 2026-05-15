@@ -8,17 +8,7 @@
         <form method="POST" action="/listings/<?= $listing->id ?>">
             <input type="hidden" name="_method" value="PUT">
             <h2 class="text-2xl font-bold mb-6 text-center text-gray-400">Job Info</h2>
-            
-            <?php if(isset($errors)) : ?>
-                <div class="mb-6">
-                    <?php foreach($errors as $error): ?>
-                        <div class="bg-red-50 border-l-4 border-red-500 text-red-700 p-3 mb-2 rounded-r-lg shadow-sm text-sm animate-pulse">
-                            <i class="fa fa-exclamation-circle mr-2"></i><?= $error; ?>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            <?php endif; ?>
-            
+            <?php loadPartial('errors' , ['errors' => $errors ?? []]) ?>     
             <div class="mb-4">
                 <input 
                     type="text" 

@@ -16,18 +16,18 @@ function basePath($path = '')
 /**
  * Load a view partial
  *
- * @param string $partial
- * @param array $data
+ * @param string $partials
  * @return void
  */
-function loadPartial($partial, array $data = [])
+function loadPartial($name, $data = [])
 {
-    $partialPath = basePath('App/views/partials/' . $partial . '.php');
+    $partialPath = basePath('App/views/partials/' . $name . '.php');
 
     if (file_exists($partialPath)) {
+        extract($data);
         require $partialPath;
     } else {
-        echo "Partial {$partial} not found";
+        echo "Partial {$name} not found";
     }
 }
 
