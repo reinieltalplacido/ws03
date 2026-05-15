@@ -66,7 +66,7 @@
                 <input 
                     type="text" 
                     name="tags" 
-                    placeholder="Tags (comma separated)" 
+                    placeholder="Tags" 
                     class="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-[#581C87] focus:ring-2 focus:ring-[#581C87]/20 transition-all" 
                     value="<?= $listing['tags'] ?? '' ?>"/>
             </div>

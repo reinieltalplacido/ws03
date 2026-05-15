@@ -86,10 +86,34 @@ public function store (){
         
     } else {
         //Submit data 
-        echo "Success!";
+        
+
+        $fields = [];
+        $values = [];
+
+        foreach ($newListingData as $field => $value) {
+            $fields[] = $field;
+            // Convert empty strings to null
+            if ($value === '') {
+                $newListingData[$field] = null;
+            }
+            $values[] = ':' . $field;
+        }
+
+        $fields = implode(', ', $fields);
+        $values = implode(', ', $values);
+
+        $query = "INSERT INTO listings ({$fields}) VALUES ({$values})";
+
+        $this->db->query($query, $newListingData);
+
+        redirect('/listings');
+    }
+       
+       
     }
 
     
 }
-}
+
 
