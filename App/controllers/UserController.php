@@ -52,7 +52,7 @@ class UserController
         $city = $_POST['city'] ?? '';
         $state = $_POST['state'] ?? '';
         $password = $_POST['password'] ?? '';
-        $passwordConfirmation = $_POST['passwordConfirmation'] ?? '';
+        $passwordConfirmation = $_POST['password_confirmation'] ?? '';
 
         $errors = [];
 
@@ -69,7 +69,7 @@ class UserController
         }  
 
         if(!Validation::match($password, $passwordConfirmation)){
-            $errors['passwordConfirmation'] = 'Password do not match';
+            $errors['password_confirmation'] = 'Password do not match';
         }  
 
 
@@ -86,11 +86,36 @@ class UserController
               ]  
             ]);
             exit;
-        } else {
+        } 
 
+        //Check if email exist
+        $params = [
+            'email' => $email
+        ];
+
+        $user = $this->db->query('SELECT * FROM users WHERE email = :email' , $params)->fetch();
+
+        if($user){
+            $errors['email'] = 'That Email already exists';
+            loadView('users/create', [
+                'errors' => $errors,
+                
+            ]);
+            exit;
         }
 
-        
+        //Create user account
+        $params = [
+            'name' => $name,
+            'email' => $email,
+            'city' => $city,
+            'state' => $state,
+            'password' => password_hash($password, PASSWORD_DEFAULT),
+        ];
+
+        $this->db->query('INSERT INTO users (name, email, city, state, password) VALUES (:name, :email, :city, :state, :password)', $params);
+
+        redirect('/'); 
         
     } 
 
