@@ -141,7 +141,83 @@ public function store (){
         redirect('/listings');
     }
 
+    public function edit ($params) {
+        
+        $id = $params['id'] ?? '';
+        $queryParams = ['id' => $id];
+
+        $listing = $this->db->query('SELECT * FROM listings WHERE id = :id', $queryParams)->fetch();
+
+        //Check if listing exist 
+        if (! $listing) {
+            ErrorController::notFound('Listing not found');
+            return;
+        }
+        loadView('listings/edit', [
+            'listing' =>  $listing
+        ]);
+
+    }
+
+    /**
+     * Update Listing
+     * 
+     * @param array $params
+     * @return variant
+     */
+
+    public function update ($params) {
+
+        $id = $params['id'] ?? '';
+        $queryParams = ['id' => $id];
+
+        $listing = $this->db->query('SELECT * FROM listings WHERE id = :id', $queryParams)->fetch();
+
+        //Check if listing exist 
+        if (! $listing) {
+            ErrorController::notFound('Listing not found');
+            return;
+        }
+
+        $allowedFields = [
+        'title',
+        'description',
+        'salary',   
+        'tags',     
+        'company',
+        'address', 
+        'city',
+        'state',
+        'phone',
+        'email',
+        'requirements',
+        'benefits'
+    ];
+    $updatedValues = [];
+
+    $updatedValues = array_intersect_key($_POST, array_flip($allowedFields));
+
+    $updatedValues = array_map('sanitize', $updatedValues);
+
+    $requiredFields = ['title', 'description','salary', 'email', 'city', 'state'];
+
+    $errors = [];
+
+    foreach ($requiredFields as $field) {
+        if(empty($updatedValues[$field]) || !Validation::string($updatedValues[$field])) {
+            $errors[$field] = ucfirst($field) . ' is required'; 
+        }
+    }  
     
+    if(!empty($errors)) {
+        loadView('listings/edit', [
+            'listing' => $listing,
+            'errors' => $errors
+        ]);
+        exit;
+    } else{
+        //Submit to DB 
+        inspectAndDie($errors);
+    }
 }
-
-
+}

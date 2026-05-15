@@ -12,7 +12,7 @@
         Back To Listings
       </a>
       <div class="flex items-center space-x-3 ml-4">
-        <a href="/edit" class="px-5 py-2 bg-[#581C87] hover:bg-[#2E1065] text-white rounded-lg transition-all duration-300 shadow-sm">Edit</a>
+        <a href="/listings/edit/<?= $listing->id?>" class="px-5 py-2 bg-[#581C87] hover:bg-[#2E1065] text-white rounded-lg transition-all duration-300 shadow-sm">Edit</a>
         <!-- Delete Form -->
         <form method="POST" class="m-0">
           <input type = "hidden" name = "_method" value = "DELETE">
