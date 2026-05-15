@@ -268,3 +268,95 @@ header nav a.bg-white {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   /* Add text shadow for clarity */
 }
+
+
+/* ================================================================
+   ERROR PAGE STYLES (404/403)
+   ================================================================ */
+
+.error-container {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 70%),
+                radial-gradient(circle at 10% 20%, rgba(30, 58, 138, 0.03) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 40%);
+}
+
+.error-content {
+    max-width: 650px;
+    width: 100%;
+    text-align: center;
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.error-status {
+    font-size: 10rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+    margin-bottom: 1rem;
+    letter-spacing: -0.05em;
+    filter: drop-shadow(0 15px 15px rgba(30, 58, 138, 0.15));
+}
+
+.error-message {
+    font-size: 2.5rem;
+    color: #111827;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+.error-description {
+    font-size: 1.25rem;
+    color: #4b5563;
+    margin-bottom: 3.5rem;
+    line-height: 1.8;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #1e3a8a;
+    color: #ffffff !important; 
+    padding: 1.25rem 3rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 1.125rem;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 20px -5px rgba(30, 58, 138, 0.25);
+}
+
+.btn-primary:hover {
+    background: #1e40af;
+    transform: translateY(-5px);
+    box-shadow: 0 20px 30px -10px rgba(30, 58, 138, 0.4);
+    color: #ffffff !important;
+    text-decoration: none;
+}
+
+.btn-primary i {
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+    color: #ffffff !important;
+}
+
+.btn-primary:hover i {
+    transform: translateX(-6px);
+}
