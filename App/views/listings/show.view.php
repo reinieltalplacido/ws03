@@ -15,6 +15,7 @@
         <a href="/edit" class="px-5 py-2 bg-[#581C87] hover:bg-[#2E1065] text-white rounded-lg transition-all duration-300 shadow-sm">Edit</a>
         <!-- Delete Form -->
         <form method="POST" class="m-0">
+          <input type = "hidden" name = "_method" value = "DELETE">
           <button type="submit" class="px-5 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-all duration-300 shadow-sm">Delete</button>
         </form>
         <!-- End Delete Form -->
@@ -34,9 +35,11 @@
                 >Local</span
               >
             </li>
+            <?php if (!empty($listing->tags)) : ?>
             <li class="mb-2">
               <strong>Tags:</strong> <?= $listing->tags  ?>
             </li>
+            <?php endif; ?>
           </ul>
         </div>
       </div>

@@ -67,7 +67,7 @@ public function store (){
     $newListingData['user_id'] = 1;
     $newListingData = array_map('sanitize', $newListingData);
 
-    $requiredFields = ['title', 'description', 'email', 'city', 'state'];
+    $requiredFields = ['title', 'description','salary', 'email', 'city', 'state'];
 
     $errors = [];
 
@@ -111,6 +111,31 @@ public function store (){
     }
        
        
+    }
+
+    /**
+     * Delete a Listing
+     * 
+     * @param array $params
+     * @return void
+     */
+    public function destroy ($params) {
+        $id = $params['id'];
+       
+        $params = [
+            'id' => $id
+        ];
+
+        $listing = $this->db->query('SELECT * FROM listings WHERE id = :id', $params)->fetch();
+
+        if (! $listing) {
+            ErrorController::notFound('Listing not found');
+            return;
+        }
+
+        $this->db->query('DELETE FROM listings WHERE id = :id', $params);
+
+        redirect('/listings');
     }
 
     

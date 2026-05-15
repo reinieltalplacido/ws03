@@ -20,11 +20,14 @@
                                 <span
                                     class="text-xs bg-[#F5F3FF] text-[#2E1065] font-semibold rounded-full px-3 py-1 ml-2 border border-[#2E1065]/10">Local</span>
                             </li>
+
+                            <?php  if (!empty($listing->tags)) : ?>
                             <li class="mb-2">
                                 <strong>Tags:</strong> <?= $listing->tags ?>
                             </li>
+                            <?php endif; ?>
                         </ul>
-                        <a href="/listing/<?= $listing->id ?>"
+                        <a href="/listings/<?= $listing->id ?>"
                             class="block w-full text-center px-5 py-3 shadow-md rounded-lg text-white bg-[#2E1065] hover:bg-[#581C87] transition-all duration-300 font-semibold">
                             Details
                         </a>
