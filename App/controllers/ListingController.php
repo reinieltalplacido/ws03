@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use Framework\Database;
 use Framework\Validation;
+use Framework\Session;
+use Framework\Authorization;
 class ListingController
 {
     protected $db;
@@ -14,7 +16,7 @@ class ListingController
     }
 
     public function index (){
-        $listings = $this->db->query('SELECT * FROM listings')->fetchAll();
+        $listings = $this->db->query('SELECT * FROM listings ORDER BY created_at DESC')->fetchAll();
         loadView('listings/index', ['listings' => $listings]);
     }
 
@@ -64,7 +66,7 @@ public function store (){
     
     $newListingData = array_intersect_key($_POST, array_flip($allowedFields));
 
-    $newListingData['user_id'] = 1;
+    $newListingData['user_id'] = Session::get('user')['id'];
     $newListingData = array_map('sanitize', $newListingData);
 
     $requiredFields = ['title', 'description','salary', 'email', 'city', 'state'];
@@ -107,6 +109,8 @@ public function store (){
 
         $this->db->query($query, $newListingData);
 
+        Session::setFlashmessage('success_message', 'Listing created successfully');
+
         redirect('/listings');
     }
        
@@ -128,15 +132,23 @@ public function store (){
 
         $listing = $this->db->query('SELECT * FROM listings WHERE id = :id', $params)->fetch();
 
-        if (! $listing) {
+        // Check if listing exist and user is owner
+        if (!$listing) {
             ErrorController::notFound('Listing not found');
             return;
         }
+        
+       //Authorization
+        if(!Authorization::isOwner($listing->user_id)){
+            Session::setFlashmessage('error_message', 'You are not authorized to delete this listing');
+            return redirect('/listings');
+        }
 
+        
         $this->db->query('DELETE FROM listings WHERE id = :id', $params);
 
         // Set Flash Message
-        $_SESSION['success_message'] = 'Listing deleted successfully';
+        Session::setFlashmessage('success_message', 'Listing deleted successfully');
 
         redirect('/listings');
     }
@@ -230,7 +242,7 @@ public function store (){
 
        $this->db->query($updateQuery, $updateValues);
 
-       $_SESSION['success_message'] = 'Listing updated successfully';
+       Session::setFlashmessage('success_message', 'Listing updated successfully');
        redirect('/listings/' . $id);
     }
 }
