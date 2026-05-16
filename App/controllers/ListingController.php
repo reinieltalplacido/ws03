@@ -154,7 +154,6 @@ public function store (){
     }
 
     public function edit ($params) {
-        
         $id = $params['id'] ?? '';
         $queryParams = ['id' => $id];
 
@@ -165,6 +164,14 @@ public function store (){
             ErrorController::notFound('Listing not found');
             return;
         }
+
+
+        //Authorization
+        if(!Authorization::isOwner($listing->user_id)){
+            Session::setFlashmessage('error_message', 'You are not authorized to update this listing');
+            return redirect('/listings');
+        }
+
         loadView('listings/edit', [
             'listing' =>  $listing
         ]);
@@ -189,6 +196,12 @@ public function store (){
         if (! $listing) {
             ErrorController::notFound('Listing not found');
             return;
+        }
+
+        //Authorization
+        if(!Authorization::isOwner($listing->user_id)){
+            Session::setFlashmessage('error_message', 'You are not authorized to update this listing');
+            return redirect('/listings');
         }
 
         $allowedFields = [
@@ -246,4 +259,30 @@ public function store (){
        redirect('/listings/' . $id);
     }
 }
+
+    /**
+     * Search listings by keyword and location
+     * 
+     * @return void 
+     */
+    public function search()
+    {
+        $keywords = isset($_GET['keywords']) ? trim($_GET['keywords']) : '';
+        $location = isset($_GET['location']) ? trim($_GET['location']) : '';
+
+        $query = "SELECT * FROM listings WHERE (title LIKE :keywords OR description LIKE :keywords OR tags LIKE :keywords OR company LIKE :keywords) AND (city LIKE :location OR state LIKE :location)";
+
+        $params = [
+            'keywords' => "%{$keywords}%",
+            'location' => "%{$location}%"
+        ];
+
+        $listings = $this->db->query($query, $params)->fetchAll();
+
+        loadView('listings/index', [
+            'listings' => $listings,
+            'keywords' => $keywords,
+            'location' => $location
+        ]);
+    }
 }
