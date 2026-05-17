@@ -1,11 +1,11 @@
 /* ============================================================
    JOBSEEK — CUSTOM STYLESHEET
    Pangalan ng Student: Reiniel Talplacido BSIT - 3E
-   Theme Name: Premium Modern (Midnight Purple & White)
+   Theme Name: Modern Corporate (Slate & Blue & White)
    ============================================================ */
 
 /* --- Google Fonts Import --- */
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 
 /* ----------------------------------------------------------------
@@ -13,30 +13,29 @@
    ---------------------------------------------------------------- */
 
 :root {
-  --color-header: #2E1065;
-  /* Midnight Purple */
-  --color-accent: #581C87;
-  /* Royal Purple Accent */
-  --color-page-bg: #FFFFFF;
+  --color-header: #0f172a;
+  /* Slate 900 */
+  --color-accent: #2563eb;
+  /* Blue 600 */
+  --color-page-bg: #f8fafc;
+  /* Slate 50 */
+  --color-card-bg: #ffffff;
   /* White */
-  --color-card-bg: #FFFFFF;
-  /* White */
-  --color-section-bg: #F5F3FF;
-  /* Soft Lavender */
-  --color-heading: #2E1065;
-  /* Midnight Purple */
-  --color-body-text: #2E1065;
-  /* Midnight Purple */
-  --color-link: #581C87;
-  /* Royal Purple */
-  --color-tag-bg: #F5F3FF;
-  /* Soft Lavender */
-  --color-tag-text: #2E1065;
-  /* Midnight Purple */
-  --color-footer: #2E1065;
-  /* Midnight Purple */
-  --showcase-overlay: transparent;
-  /* Clear overlay */
+  --color-section-bg: #f1f5f9;
+  /* Slate 100 */
+  --color-heading: #0f172a;
+  /* Slate 900 */
+  --color-body-text: #334155;
+  /* Slate 700 */
+  --color-link: #2563eb;
+  /* Blue 600 */
+  --color-tag-bg: #eff6ff;
+  /* Blue 50 */
+  --color-tag-text: #1d4ed8;
+  /* Blue 700 */
+  --color-footer: #0f172a;
+  /* Slate 900 */
+  --showcase-overlay: rgba(15, 23, 42, 0.8);
 }
 
 
@@ -45,8 +44,8 @@
    ---------------------------------------------------------------- */
 
 :root {
-  --font-heading: 'Montserrat', sans-serif;
-  --font-body: 'Lato', sans-serif;
+  --font-heading: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
 }
 
 
@@ -55,17 +54,16 @@
    ---------------------------------------------------------------- */
 
 :root {
-  --border-radius: 4px;
-  /* Sharper corners for a corporate feel */
-  --card-shadow: 0 4px 12px rgba(46, 16, 101, 0.08);
+  --border-radius: 12px;
+  /* Modern rounded corners */
+  --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
 
 
 
 /* ================================================================
-   === HUWAG I-EDIT ANG SECTION NA ITO (unless gusto mong advanced!) ===
-   === Ito ang code na gumagamit ng iyong mga variables sa itaas.  ===
+   === THEME APPLICATION ===
    ================================================================ */
 
 body {
@@ -82,64 +80,59 @@ h5,
 h6 {
   font-family: var(--font-heading) !important;
   font-weight: 700 !important;
-  color: var(--color-heading) !important;
 }
 
 a {
-  color: var(--color-link) !important;
+  color: var(--color-link);
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  opacity: 0.8;
 }
 
 header {
   background-color: var(--color-header) !important;
 }
 
+/* Mapping legacy classes to the new Blue theme */
 .bg-blue-900,
-.bg-blue-800 {
+.bg-blue-800,
+.bg-indigo-900 {
   background-color: var(--color-header) !important;
 }
 
+.bg-blue-500,
 .bg-yellow-500 {
   background-color: var(--color-accent) !important;
 }
 
-.text-yellow-500 {
+.text-blue-900,
+.text-indigo-900 {
+  color: var(--color-header) !important;
+}
+
+.text-blue-600,
+.text-blue-500 {
   color: var(--color-accent) !important;
-}
-
-.hover\:bg-yellow-600:hover {
-  background-color: var(--color-accent) !important;
-  filter: brightness(1.2);
-  /* Lighter on hover since it's Navy */
-}
-
-.bg-blue-500 {
-  background-color: var(--color-accent) !important;
 }
 
 .bg-white {
   background-color: var(--color-card-bg) !important;
   border-radius: var(--border-radius) !important;
   box-shadow: var(--card-shadow) !important;
-  border: 1px solid rgba(46, 16, 101, 0.1) !important;
+  border: 1px solid rgba(15, 23, 42, 0.05) !important;
 }
 
-.bg-indigo-100 {
+.bg-indigo-100,
+.bg-blue-50 {
   background-color: var(--color-tag-bg) !important;
 }
 
 .text-indigo-700,
-.text-indigo-800 {
+.text-indigo-800,
+.text-blue-700 {
   color: var(--color-tag-text) !important;
-}
-
-.text-blue-700,
-.text-blue-500,
-.text-blue-900 {
-  color: var(--color-link) !important;
-}
-
-.text-white {
-  color: #ffffff !important;
 }
 
 button,
@@ -149,26 +142,17 @@ button,
   border-radius: var(--border-radius) !important;
 }
 
-.overlay {
-  background-color: var(--showcase-overlay) !important;
-  pointer-events: none;
-}
-
-footer,
-.bg-indigo-900 {
+footer {
   background-color: var(--color-footer) !important;
   color: #ffffff !important;
 }
 
-footer a,
-footer p,
-footer span,
-footer h1,
-footer h2,
-footer h3,
-footer h4,
-footer h5,
-footer h6 {
+footer a {
+  color: #cbd5e1 !important;
+  /* Slate 300 */
+}
+
+footer a:hover {
   color: #ffffff !important;
 }
 
@@ -196,77 +180,22 @@ body>footer {
    SPECIFIC UI OVERRIDES
    ================================================================ */
 
-/* 1. TOP HEADER - Text for logo and navigation links */
-header h1,
-header h1 a,
-header nav a:not(.bg-white) {
-  color: #FFFFFF !important;
-  /* White text on Purple header */
-}
-
-/* 2. JOB LISTINGS - Fix invisible description text */
-.bg-white p.text-white,
-.bg-white p.text-gray-500,
-.bg-white p.text-gray-700 {
-  color: var(--color-body-text) !important;
-  /* Force Purple text on White cards for paragraphs */
-}
-
-/* Ensure tags and buttons retain white text */
-.bg-blue-500,
-.bg-blue-800,
-.bg-blue-900,
-.rounded-full.bg-blue-500,
-a.bg-blue-500 {
-  color: #FFFFFF !important;
-}
-
-
-.bg-gray-100 {
-  background-color: var(--color-section-bg) !important;
-  border: 1px solid rgba(46, 16, 101, 0.05) !important;
-}
-
-/* 3. BANNERS - Text for title and description */
-.bg-blue-800 h2,
-.bg-blue-800 p,
-.bg-blue-900 h2,
-.bg-blue-900 p {
-  color: #FFFFFF !important;
-  /* White text on Purple background */
-}
-
-/* 4. BUTTONS - Ensure consistency and contrast */
-.bg-blue-500,
-.bg-blue-800,
-.bg-yellow-500 {
-  color: #FFFFFF !important;
-}
-
-/* "Post a Job" style buttons (White background) */
-.bg-white.text-black,
-.bg-white.text-\[#0F3946\],
+/* 1. HEADER - Navigation */
 header nav a.bg-white {
+  background-color: #ffffff !important;
   color: var(--color-header) !important;
-  /* Purple text on White buttons */
   font-weight: 700 !important;
 }
 
-/* 5. SEARCH SECTION - Use Ice Blue */
-.showcase-search {
-  background-color: var(--color-section-bg) !important;
-}
-
-/* 6. GENERAL TEXT FIXES */
-.text-gray-500,
-.text-gray-700 {
+/* 2. JOB CARDS */
+.bg-white p {
   color: var(--color-body-text) !important;
 }
 
-/* 7. SHOWCASE (HERO) TEXT - Ensure readability if background is light */
-.showcase h2 {
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  /* Add text shadow for clarity */
+/* 3. BANNERS */
+.bg-blue-600 h2,
+.bg-blue-600 p {
+  color: #FFFFFF !important;
 }
 
 
@@ -275,88 +204,29 @@ header nav a.bg-white {
    ================================================================ */
 
 .error-container {
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 70%),
-                radial-gradient(circle at 10% 20%, rgba(30, 58, 138, 0.03) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 40%);
-}
-
-.error-content {
-    max-width: 650px;
-    width: 100%;
-    text-align: center;
-    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative;
-}
-
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
 }
 
 .error-status {
-    font-size: 10rem;
-    font-weight: 900;
-    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    line-height: 1;
-    margin-bottom: 1rem;
-    letter-spacing: -0.05em;
-    filter: drop-shadow(0 15px 15px rgba(30, 58, 138, 0.15));
-}
-
-.error-message {
-    font-size: 2.5rem;
-    color: #111827;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
-}
-
-.error-description {
-    font-size: 1.25rem;
-    color: #4b5563;
-    margin-bottom: 3.5rem;
-    line-height: 1.8;
-    max-width: 520px;
-    margin-left: auto;
-    margin-right: auto;
+  font-size: 10rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #0f172a 0%, #2563eb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 15px 15px rgba(15, 23, 42, 0.1));
 }
 
 .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    background: #1e3a8a;
-    color: #ffffff !important; 
-    padding: 1.25rem 3rem;
-    border-radius: 20px;
-    font-weight: 600;
-    font-size: 1.125rem;
-    text-decoration: none;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 10px 20px -5px rgba(30, 58, 138, 0.25);
+  background: #2563eb;
+  color: #ffffff !important;
+  border-radius: 12px;
 }
 
 .btn-primary:hover {
-    background: #1e40af;
-    transform: translateY(-5px);
-    box-shadow: 0 20px 30px -10px rgba(30, 58, 138, 0.4);
-    color: #ffffff !important;
-    text-decoration: none;
+  background: #1d4ed8;
 }
-
-.btn-primary i {
-    font-size: 1.3rem;
-    transition: transform 0.3s ease;
-    color: #ffffff !important;
-}
-
-.btn-primary:hover i {
-    transform: translateX(-6px);
-}
